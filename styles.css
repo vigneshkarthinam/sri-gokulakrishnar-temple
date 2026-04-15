@@ -283,6 +283,24 @@ h1 .accent {
   position: relative;
 }
 
+/* Full-bleed full-viewport variant */
+.hero-carousel--full {
+  margin: 0;
+  max-width: none;
+  width: 100%;
+  border-radius: 0;
+  padding: 0;
+  background: #0a1f2c;
+  box-shadow: none;
+}
+
+.hero-carousel--full .hero-slides {
+  border-radius: 0;
+  aspect-ratio: auto;
+  height: calc(100vh - 76px);
+  min-height: 420px;
+}
+
 .hero-slides {
   position: relative;
   border-radius: 14px;
@@ -310,6 +328,10 @@ h1 .accent {
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+.hero-carousel--full .hero-slide img + .hero-caption {
+  background: linear-gradient(to top, rgba(6, 53, 73, 0.75) 0%, rgba(6, 53, 73, 0.4) 50%, rgba(6, 53, 73, 0.55) 100%);
 }
 
 .hero-slide--alt1 {
@@ -364,6 +386,15 @@ h1 .accent {
   font-size: clamp(1.4rem, 3.6vw, 2.6rem);
   line-height: 1.15;
   color: #fff;
+}
+
+.hero-carousel--full .hero-caption-title {
+  font-size: clamp(2rem, 6vw, 4.5rem);
+}
+
+.hero-carousel--full .hero-caption-kicker,
+.hero-carousel--full .hero-caption-sub {
+  font-size: clamp(1rem, 1.8vw, 1.4rem);
 }
 
 .hero-caption--center .hero-caption-title {
