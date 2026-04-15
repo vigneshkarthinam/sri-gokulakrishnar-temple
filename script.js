@@ -312,3 +312,48 @@ document.addEventListener('click', (e) => {
   overlay.addEventListener('click', () => overlay.remove());
   document.body.appendChild(overlay);
 });
+
+// ============ Hero carousel ============
+(function initHeroCarousel() {
+  const root = document.getElementById('heroCarousel');
+  if (!root) return;
+  const slides = Array.from(root.querySelectorAll('.hero-slide'));
+  const dots = Array.from(root.querySelectorAll('.hero-dot'));
+  const prevBtn = root.querySelector('.hero-nav--prev');
+  const nextBtn = root.querySelector('.hero-nav--next');
+  if (slides.length === 0) return;
+
+  let index = 0;
+  let timer = null;
+  const INTERVAL = 5000;
+
+  function show(next) {
+    index = (next + slides.length) % slides.length;
+    slides.forEach((s, i) => s.classList.toggle('is-active', i === index));
+    dots.forEach((d, i) => d.classList.toggle('is-active', i === index));
+  }
+
+  function start() {
+    stop();
+    timer = setInterval(() => show(index + 1), INTERVAL);
+  }
+
+  function stop() {
+    if (timer) { clearInterval(timer); timer = null; }
+  }
+
+  prevBtn && prevBtn.addEventListener('click', () => { show(index - 1); start(); });
+  nextBtn && nextBtn.addEventListener('click', () => { show(index + 1); start(); });
+  dots.forEach((d) => {
+    d.addEventListener('click', () => {
+      const i = Number(d.getAttribute('data-dot')) || 0;
+      show(i);
+      start();
+    });
+  });
+
+  root.addEventListener('mouseenter', stop);
+  root.addEventListener('mouseleave', start);
+
+  start();
+})();
