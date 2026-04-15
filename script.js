@@ -13,8 +13,8 @@ const DEMOLITION_IMAGES = Array.from({ length: 14 }, (_, i) => ({
 
 const CEREMONY_IMAGES = Array.from({ length: 41 }, (_, i) => ({
   src: `assets/inauguration/inauguration-${pad(i + 1)}.jpg`,
-  caption: 'Boomi Pooja & Door Pooja',
-  alt: `Boomi Pooja / Door Pooja photo ${i + 1}`,
+  caption: 'Inauguration',
+  alt: `Inauguration photo ${i + 1}`,
 }));
 
 const NEW_TEMPLE_IMAGES = Array.from({ length: 3 }, (_, i) => ({
@@ -26,7 +26,7 @@ const NEW_TEMPLE_IMAGES = Array.from({ length: 3 }, (_, i) => ({
 const INAUGURATION_VIDEOS = Array.from({ length: 9 }, (_, i) => ({
   src: `assets/videos/inauguration/inauguration-${pad(i + 1)}.mp4`,
   poster: `assets/inauguration/inauguration-${pad(i + 1)}.jpg`,
-  caption: `Boomi Pooja / Door Pooja — Clip ${i + 1}`,
+  caption: `Inauguration — Clip ${i + 1}`,
 }));
 
 const DEMOLITION_VIDEOS = Array.from({ length: 8 }, (_, i) => ({
