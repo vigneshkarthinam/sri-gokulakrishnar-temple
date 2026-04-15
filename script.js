@@ -5,34 +5,56 @@
 
 const pad = (n) => String(n).padStart(2, '0');
 
+const DEMOLITION_CAPTIONS = [
+  'Old Shrine',
+  'Heritage Memory',
+  'Final Darshan',
+  'Demolition Works',
+  'Making Way',
+  'Clearing the Ground',
+  'Sacred Foundation',
+];
+
 const DEMOLITION_IMAGES = Array.from({ length: 14 }, (_, i) => ({
   src: `assets/demolition/demolition-${pad(i + 1)}.jpg`,
-  caption: i < 4 ? 'Old temple' : i < 10 ? 'Demolition works' : 'Site cleared',
-  alt: `Old temple demolition photo ${i + 1}`,
+  caption: DEMOLITION_CAPTIONS[i % DEMOLITION_CAPTIONS.length],
+  alt: `Old temple demolition — photo ${i + 1}`,
 }));
+
+// Varied devotional captions cycled across the inauguration photos
+const CEREMONY_CAPTIONS = [
+  'Sacred Inauguration',
+  'Vedic Rituals',
+  'Divine Blessings',
+  'Temple Ceremony',
+  'Holy Pooja',
+  'Priests & Devotees',
+  'Sanctum Rites',
+  'Auspicious Moments',
+];
 
 const CEREMONY_IMAGES = Array.from({ length: 41 }, (_, i) => ({
   src: `assets/inauguration/inauguration-${pad(i + 1)}.jpg`,
-  caption: 'Inauguration',
-  alt: `Inauguration photo ${i + 1}`,
+  caption: CEREMONY_CAPTIONS[i % CEREMONY_CAPTIONS.length],
+  alt: `Sri Gokulakrishnar Temple inauguration — photo ${i + 1}`,
 }));
 
 const NEW_TEMPLE_IMAGES = Array.from({ length: 3 }, (_, i) => ({
   src: `assets/inauguration/inauguration-${pad(42 + i)}.jpg`,
-  caption: 'Temple site',
-  alt: `New temple site photo ${i + 1}`,
+  caption: 'Temple Sanctum',
+  alt: `Sri Gokulakrishnar Temple site — photo ${i + 1}`,
 }));
 
 const INAUGURATION_VIDEOS = Array.from({ length: 9 }, (_, i) => ({
   src: `assets/videos/inauguration/inauguration-${pad(i + 1)}.mp4`,
   poster: `assets/inauguration/inauguration-${pad(i + 1)}.jpg`,
-  caption: `Inauguration — Clip ${i + 1}`,
+  caption: `Sacred Inauguration Ceremony — Clip ${i + 1}`,
 }));
 
 const DEMOLITION_VIDEOS = Array.from({ length: 8 }, (_, i) => ({
   src: `assets/videos/demolition/demolition-${pad(i + 1)}.mp4`,
   poster: `assets/demolition/demolition-${pad(i + 1)}.jpg`,
-  caption: `Old Temple & Demolition — Clip ${i + 1}`,
+  caption: `Old Shrine & Demolition — Clip ${i + 1}`,
 }));
 
 // ============ Gallery builder ============
