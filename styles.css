@@ -909,6 +909,655 @@ h2.light::after { color: var(--gold); }
   opacity: 0.7;
 }
 
+/* ============ KUMBABHISHEKAM BANNER (below hero) ============ */
+.kumb-banner {
+  background:
+    linear-gradient(90deg, #c9262c 0%, #e85a1a 35%, #f2a51f 70%, #c9a24a 100%);
+  color: #fff;
+  padding: 16px 0;
+  position: relative;
+  border-top: 3px solid var(--gold-soft);
+  border-bottom: 3px solid var(--gold-soft);
+  box-shadow: 0 10px 25px rgba(232, 90, 26, 0.25);
+  overflow: hidden;
+}
+
+.kumb-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'><text x='20' y='28' font-size='18' text-anchor='middle' opacity='0.08'>🪷</text></svg>");
+  background-size: 80px 80px;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.kumb-banner-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.kumb-banner-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.kumb-lotus {
+  font-size: 2.2rem;
+  animation: floatUp 3s ease-in-out infinite;
+  filter: drop-shadow(0 3px 6px rgba(0,0,0,0.3));
+}
+
+@keyframes floatUp {
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+  50% { transform: translateY(-4px) rotate(3deg); }
+}
+
+.kumb-banner-title {
+  margin: 0;
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: 1.5px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.25);
+}
+
+.kumb-banner-sub {
+  margin: 2px 0 0;
+  font-size: 0.88rem;
+  opacity: 0.95;
+}
+
+.kumb-banner-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.kumb-countdown-compact {
+  display: flex;
+  gap: 10px;
+}
+
+.kumb-countdown-compact > div {
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 10px;
+  padding: 6px 12px;
+  text-align: center;
+  min-width: 54px;
+}
+
+.kumb-countdown-compact strong {
+  display: block;
+  font-family: "Cinzel", serif;
+  font-size: 1.3rem;
+  line-height: 1;
+  color: var(--gold-soft);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+.kumb-countdown-compact span {
+  font-size: 0.68rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.kumb-details-btn {
+  background: #fff;
+  color: #c9262c;
+  border: 2px solid #fff;
+  font-weight: 800;
+  padding: 10px 18px;
+  border-radius: 100px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.88rem;
+  transition: transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.kumb-details-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+}
+
+/* Nav Kumbabishekam link */
+.nav-kumb {
+  background: linear-gradient(135deg, #c9262c, #e85a1a);
+  color: #fff !important;
+  padding: 8px 14px;
+  border-radius: 100px;
+  font-size: 0.85rem !important;
+  box-shadow: var(--shadow-soft);
+  animation: nav-glow 2.5s ease-in-out infinite;
+}
+
+.nav-kumb:hover {
+  filter: brightness(1.05);
+}
+
+@keyframes nav-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(232, 90, 26, 0.5); }
+  50% { box-shadow: 0 0 0 8px rgba(232, 90, 26, 0); }
+}
+
+/* Pulse animation for status badge */
+.status-badge.pulse {
+  background: linear-gradient(135deg, #c9262c, #e85a1a);
+  color: #fff;
+  border-color: #c9262c;
+  animation: badge-pulse 2s ease-in-out infinite;
+}
+
+@keyframes badge-pulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(232, 90, 26, 0.4); }
+  50% { transform: scale(1.02); box-shadow: 0 0 0 10px rgba(232, 90, 26, 0); }
+}
+
+/* ============ KUMBABHISHEKAM MODAL ============ */
+.modal-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(6, 53, 73, 0.85);
+  backdrop-filter: blur(6px);
+  z-index: 10000;
+  padding: 24px;
+  overflow-y: auto;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.modal-backdrop.open {
+  display: flex;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal {
+  position: relative;
+  background: #fff;
+  border-radius: 20px;
+  max-width: 820px;
+  width: 100%;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+  overflow: hidden;
+  margin: auto;
+  animation: slideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border: 3px solid var(--gold);
+}
+
+@keyframes slideUp {
+  from { transform: translateY(40px) scale(0.95); opacity: 0; }
+  to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: rgba(255,255,255,0.9);
+  color: var(--brand-deep);
+  border-radius: 50%;
+  font-size: 1.6rem;
+  font-weight: 700;
+  cursor: pointer;
+  z-index: 3;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  transition: all 0.2s;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.modal-close:hover {
+  background: #fff;
+  transform: rotate(90deg);
+  color: #c9262c;
+}
+
+/* Modal banner with festive gradient */
+.modal-banner {
+  background:
+    linear-gradient(135deg, #8b1a1f 0%, #c9262c 25%, #e85a1a 55%, #f2a51f 80%, #c9a24a 100%);
+  color: #fff;
+  padding: 34px 28px 28px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 4px solid var(--gold);
+}
+
+.modal-fireworks {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.3) 0, transparent 1.5%),
+    radial-gradient(circle at 80% 20%, rgba(255,235,180,0.4) 0, transparent 1.5%),
+    radial-gradient(circle at 50% 70%, rgba(255,255,255,0.25) 0, transparent 1.5%),
+    radial-gradient(circle at 90% 80%, rgba(255,235,180,0.3) 0, transparent 1.5%),
+    radial-gradient(circle at 10% 85%, rgba(255,255,255,0.3) 0, transparent 1.5%),
+    radial-gradient(circle at 35% 15%, rgba(255,235,180,0.35) 0, transparent 1%),
+    radial-gradient(circle at 65% 50%, rgba(255,255,255,0.3) 0, transparent 1%);
+  pointer-events: none;
+  animation: sparkle 4s ease-in-out infinite alternate;
+}
+
+@keyframes sparkle {
+  from { opacity: 0.5; transform: scale(1); }
+  to { opacity: 1; transform: scale(1.1); }
+}
+
+.modal-lotus-left,
+.modal-lotus-right {
+  position: absolute;
+  top: 14px;
+  font-size: 2rem;
+  filter: drop-shadow(0 3px 6px rgba(0,0,0,0.3));
+  animation: floatUp 3s ease-in-out infinite;
+}
+
+.modal-lotus-left { left: 20px; }
+.modal-lotus-right { right: 70px; animation-delay: -1.5s; }
+
+.modal-sanskrit {
+  margin: 0 0 8px;
+  font-family: "Cinzel", serif;
+  font-size: 0.95rem;
+  letter-spacing: 2px;
+  opacity: 0.95;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+.modal-banner h2 {
+  margin: 0;
+  font-family: "Cinzel", serif;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #fff;
+  text-shadow: 0 3px 8px rgba(0,0,0,0.4), 0 0 20px rgba(255,235,180,0.5);
+  position: relative;
+}
+
+.modal-banner h2::after { display: none; }
+
+.modal-tamil {
+  margin: 8px 0 0;
+  font-family: "Noto Sans Tamil", sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--gold-soft);
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+/* Modal body */
+.modal-body {
+  padding: 28px;
+  max-height: calc(100vh - 140px);
+  overflow-y: auto;
+  background: linear-gradient(180deg, #fff 0%, #fffbee 100%);
+}
+
+.kumb-hero {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.kumb-date-card {
+  background: linear-gradient(135deg, #c9262c, #e85a1a);
+  color: #fff;
+  padding: 18px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 12px 24px rgba(201, 38, 44, 0.3);
+  border: 2px solid var(--gold);
+}
+
+.kumb-date-label {
+  margin: 0 0 6px;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0.9;
+  font-weight: 700;
+}
+
+.kumb-date-big {
+  margin: 0;
+  font-family: "Cinzel", serif;
+  font-size: 4.2rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--gold-soft);
+  text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.kumb-date-month {
+  margin: 4px 0 0;
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-size: 1rem;
+}
+
+.kumb-date-day {
+  margin: 10px 0 4px;
+  font-size: 0.88rem;
+  opacity: 0.95;
+  font-family: "Noto Sans Tamil", sans-serif;
+}
+
+.kumb-date-time {
+  margin: 0;
+  font-weight: 700;
+  font-size: 0.92rem;
+  background: rgba(255,255,255,0.18);
+  border-radius: 8px;
+  padding: 6px 10px;
+  display: inline-block;
+  margin-top: 8px;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+.kumb-countdown {
+  background: linear-gradient(135deg, var(--brand-deep), var(--brand));
+  color: #fff;
+  padding: 18px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 12px 24px rgba(13, 77, 107, 0.3);
+  border: 2px solid var(--gold);
+}
+
+.kumb-countdown-label {
+  margin: 0 0 10px;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--gold-soft);
+  font-weight: 700;
+}
+
+.kumb-countdown-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.kumb-countdown-row > div {
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 10px;
+  padding: 8px 4px;
+}
+
+.kumb-countdown-row strong {
+  display: block;
+  font-family: "Cinzel", serif;
+  font-size: 1.7rem;
+  line-height: 1;
+  color: var(--gold-soft);
+}
+
+.kumb-countdown-row span {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  opacity: 0.9;
+  text-transform: uppercase;
+}
+
+.kumb-subtitle {
+  background: linear-gradient(135deg, rgba(201,162,74,0.15), rgba(232,90,26,0.1));
+  border-left: 4px solid var(--gold);
+  border-right: 4px solid var(--gold);
+  border-radius: 10px;
+  padding: 14px 18px;
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.kumb-subtitle p {
+  margin: 0;
+  font-family: "Cinzel", serif;
+  color: var(--brand-deep);
+  font-weight: 700;
+  font-size: 1.02rem;
+}
+
+.kumb-subtitle-ta {
+  margin-top: 6px !important;
+  font-family: "Noto Sans Tamil", sans-serif !important;
+  font-size: 1rem !important;
+  color: #a3371c !important;
+}
+
+.kumb-schedule {
+  margin-bottom: 22px;
+}
+
+.kumb-schedule h3 {
+  font-family: "Cinzel", serif;
+  color: var(--brand-deep);
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 2px dashed var(--gold);
+  font-size: 1.15rem;
+}
+
+.kumb-row {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 16px;
+  padding: 14px;
+  margin-bottom: 10px;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.2s;
+}
+
+.kumb-row:hover { transform: translateX(4px); }
+
+.kumb-row.highlight {
+  background: linear-gradient(135deg, #fff6dc, #fce3a8);
+  border: 2px solid var(--gold);
+  box-shadow: 0 10px 24px rgba(201,162,74,0.3);
+  position: relative;
+}
+
+.kumb-row.highlight::before {
+  content: "⭐ MAIN";
+  position: absolute;
+  top: -10px;
+  right: 14px;
+  background: linear-gradient(135deg, #c9262c, #e85a1a);
+  color: #fff;
+  padding: 3px 10px;
+  border-radius: 100px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 10px rgba(201,38,44,0.4);
+}
+
+.kumb-date-chip {
+  background: linear-gradient(135deg, var(--brand), var(--brand-soft));
+  color: #fff;
+  border-radius: 10px;
+  padding: 10px 6px;
+  text-align: center;
+  align-self: start;
+  box-shadow: inset 0 0 0 2px var(--gold);
+}
+
+.kumb-date-chip.gold {
+  background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+  box-shadow: inset 0 0 0 2px #fff, 0 6px 14px rgba(201,162,74,0.4);
+}
+
+.kumb-date-chip strong {
+  display: block;
+  font-family: "Cinzel", serif;
+  font-size: 1.8rem;
+  line-height: 1;
+  color: var(--gold-soft);
+}
+
+.kumb-date-chip.gold strong { color: #fff; }
+
+.kumb-date-chip span {
+  display: block;
+  font-size: 0.72rem;
+  margin-top: 2px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0.9;
+}
+
+.kumb-meta p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.kumb-meta p.kumb-day {
+  color: var(--brand-deep);
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+
+.kumb-location,
+.kumb-priests {
+  background: linear-gradient(135deg, rgba(13,77,107,0.05), rgba(201,162,74,0.06));
+  border-left: 4px solid var(--brand);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin-bottom: 14px;
+}
+
+.kumb-priests {
+  border-left-color: var(--gold);
+}
+
+.kumb-location p,
+.kumb-priests p {
+  margin: 0;
+  color: var(--ink);
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+.kumb-location strong,
+.kumb-priests strong {
+  color: var(--brand-deep);
+  font-family: "Cinzel", serif;
+  letter-spacing: 0.5px;
+}
+
+.kumb-invite-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 18px 0;
+}
+
+.kumb-invite-images figure {
+  margin: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid var(--gold);
+  box-shadow: var(--shadow-soft);
+  background: #fff;
+  cursor: zoom-in;
+  transition: transform 0.2s;
+}
+
+.kumb-invite-images figure:hover { transform: translateY(-3px); }
+
+.kumb-invite-images figure img {
+  width: 100%;
+  height: 240px;
+  object-fit: contain;
+  background: #fffbee;
+  padding: 6px;
+  border-radius: 0;
+}
+
+.kumb-invite-images figcaption {
+  padding: 10px;
+  text-align: center;
+  background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.88rem;
+  letter-spacing: 0.5px;
+}
+
+.kumb-cta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 22px 0 14px;
+}
+
+.kumb-cta .btn.primary {
+  background: linear-gradient(135deg, #c9262c, #e85a1a);
+  box-shadow: 0 10px 24px rgba(201,38,44,0.35);
+}
+
+.kumb-cta .btn.ghost {
+  background: transparent;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+.kumb-foot {
+  text-align: center;
+  margin: 18px 0 0;
+  font-family: "Noto Sans Tamil", sans-serif;
+  color: var(--brand-deep);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  padding: 14px;
+  background: linear-gradient(135deg, rgba(201,162,74,0.08), rgba(232,90,26,0.05));
+  border-radius: 10px;
+  border: 1px dashed var(--gold);
+}
+
+.kumb-foot em {
+  display: block;
+  margin-top: 4px;
+  font-family: "Manrope", sans-serif;
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
 /* ============ RESPONSIVE ============ */
 @media (max-width: 960px) {
   .hero-grid,
@@ -960,6 +1609,45 @@ h2.light::after { color: var(--gold); }
   .brand-sub { display: none; }
 }
 
+@media (max-width: 960px) {
+  .kumb-banner-inner {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+
+  .kumb-banner-left {
+    justify-content: center;
+  }
+
+  .kumb-banner-right {
+    justify-content: center;
+  }
+
+  .kumb-hero,
+  .kumb-invite-images {
+    grid-template-columns: 1fr;
+  }
+
+  .kumb-row {
+    grid-template-columns: 60px 1fr;
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .modal-body {
+    padding: 20px;
+  }
+
+  .modal-banner {
+    padding: 28px 20px 22px;
+  }
+
+  .modal-lotus-right {
+    right: 60px;
+  }
+}
+
 @media (max-width: 560px) {
   .gallery,
   .ceremony-gallery,
@@ -980,5 +1668,26 @@ h2.light::after { color: var(--gold); }
 
   .bank-list li strong {
     text-align: left;
+  }
+
+  .kumb-countdown-compact > div {
+    min-width: 44px;
+    padding: 4px 8px;
+  }
+
+  .kumb-countdown-compact strong {
+    font-size: 1.1rem;
+  }
+
+  .kumb-date-big {
+    font-size: 3.5rem;
+  }
+
+  .kumb-countdown-row strong {
+    font-size: 1.3rem;
+  }
+
+  .modal {
+    border-radius: 14px;
   }
 }

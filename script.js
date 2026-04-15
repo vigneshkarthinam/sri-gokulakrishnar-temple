@@ -189,3 +189,126 @@ document.addEventListener('click', (e) => {
 const style = document.createElement('style');
 style.textContent = `.gallery figure img { cursor: zoom-in; }`;
 document.head.appendChild(style);
+
+// ============ KUMBABHISHEKAM MODAL & COUNTDOWN ============
+const KUMB_DATE = new Date('2026-04-30T09:30:00+05:30'); // Main Kumbabhishekam
+const KUMB_STORAGE_KEY = 'kumbabishekam-modal-dismissed';
+const KUMB_DISMISS_HOURS = 12; // Re-show after 12 hours
+
+const kumbModal = document.getElementById('kumbModal');
+const kumbOpenNav = document.getElementById('openKumbModal');
+const kumbOpenBanner = document.getElementById('openKumbFromBanner');
+const kumbCloseBtn = document.getElementById('kumbModalClose');
+const kumbDismissBtn = document.getElementById('kumbDismissBtn');
+const kumbDonateLink = document.getElementById('kumbDonateLink');
+
+function openKumbModal(e) {
+  if (e) e.preventDefault();
+  if (!kumbModal) return;
+  kumbModal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeKumbModal() {
+  if (!kumbModal) return;
+  kumbModal.classList.remove('open');
+  document.body.style.overflow = '';
+  try {
+    localStorage.setItem(KUMB_STORAGE_KEY, String(Date.now()));
+  } catch (_) {}
+}
+
+if (kumbOpenNav) kumbOpenNav.addEventListener('click', openKumbModal);
+if (kumbOpenBanner) kumbOpenBanner.addEventListener('click', openKumbModal);
+if (kumbCloseBtn) kumbCloseBtn.addEventListener('click', closeKumbModal);
+if (kumbDismissBtn) kumbDismissBtn.addEventListener('click', closeKumbModal);
+if (kumbDonateLink) kumbDonateLink.addEventListener('click', closeKumbModal);
+
+// Close on backdrop click
+if (kumbModal) {
+  kumbModal.addEventListener('click', (e) => {
+    if (e.target === kumbModal) closeKumbModal();
+  });
+}
+
+// Close on ESC
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && kumbModal && kumbModal.classList.contains('open')) {
+    closeKumbModal();
+  }
+});
+
+// Auto-open on first visit (or every 12h)
+(function autoOpenKumb() {
+  if (!kumbModal) return;
+  try {
+    const last = Number(localStorage.getItem(KUMB_STORAGE_KEY) || 0);
+    const hoursSince = (Date.now() - last) / (1000 * 60 * 60);
+    if (!last || hoursSince > KUMB_DISMISS_HOURS) {
+      // Wait a moment so the page renders first, then open
+      setTimeout(() => openKumbModal(), 800);
+    }
+  } catch (_) {
+    setTimeout(() => openKumbModal(), 800);
+  }
+})();
+
+// Countdown — updates both the banner (compact) and modal (full)
+function updateCountdown() {
+  const now = Date.now();
+  const diff = KUMB_DATE.getTime() - now;
+
+  const setText = (id, val) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = val;
+  };
+
+  if (diff <= 0) {
+    setText('cd-days', '0'); setText('cd-hours', '0');
+    setText('cd-mins', '0'); setText('cd-secs', '0');
+    setText('cdc-days', '0'); setText('cdc-hours', '0'); setText('cdc-mins', '0');
+    return;
+  }
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const mins = Math.floor((diff / (1000 * 60)) % 60);
+  const secs = Math.floor((diff / 1000) % 60);
+
+  setText('cd-days', String(days));
+  setText('cd-hours', String(hours).padStart(2, '0'));
+  setText('cd-mins', String(mins).padStart(2, '0'));
+  setText('cd-secs', String(secs).padStart(2, '0'));
+
+  setText('cdc-days', String(days));
+  setText('cdc-hours', String(hours).padStart(2, '0'));
+  setText('cdc-mins', String(mins).padStart(2, '0'));
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+// Click on invitation images inside modal opens lightbox too
+document.querySelectorAll('.kumb-invite-images img').forEach((img) => {
+  img.style.cursor = 'zoom-in';
+});
+document.addEventListener('click', (e) => {
+  const img = e.target.closest('.kumb-invite-images figure img');
+  if (!img) return;
+  const overlay = document.createElement('div');
+  overlay.style.cssText = `
+    position: fixed; inset: 0; background: rgba(6,53,73,0.95);
+    display: grid; place-items: center; z-index: 100000; cursor: zoom-out;
+    padding: 20px;
+  `;
+  const bigImg = document.createElement('img');
+  bigImg.src = img.src;
+  bigImg.alt = img.alt;
+  bigImg.style.cssText = `
+    max-width: 96%; max-height: 96%; border-radius: 12px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.7);
+    border: 3px solid #c9a24a;
+  `;
+  overlay.appendChild(bigImg);
+  overlay.addEventListener('click', () => overlay.remove());
+  document.body.appendChild(overlay);
+});
