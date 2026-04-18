@@ -236,9 +236,6 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && kumbModal && kumbModal.classList.contains('open')) {
     closeKumbModal();
   }
-  if (e.key === 'Escape' && payModal && payModal.classList.contains('open')) {
-    closePayModal();
-  }
 });
 
 // Auto-open on first visit (or every 12h)
@@ -316,7 +313,7 @@ document.addEventListener('click', (e) => {
   document.body.appendChild(overlay);
 });
 
-// ============ Donate QR modal ============ 
+// ============ Donate QR modal ============
 const payModal = document.getElementById('payModal');
 const openPayModalBtn = document.getElementById('openPayModal');
 const payModalClose = document.getElementById('payModalClose');
@@ -336,7 +333,6 @@ function closePayModal() {
 }
 
 if (openPayModalBtn) {
-  openPayModalBtn.addEventListener('click', openPayModal);
   openPayModalBtn.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
@@ -344,6 +340,12 @@ if (openPayModalBtn) {
     }
   });
 }
+
+document.addEventListener('click', (e) => {
+  const trigger = e.target.closest('#openPayModal');
+  if (!trigger) return;
+  openPayModal();
+});
 
 if (payModalClose) payModalClose.addEventListener('click', closePayModal);
 if (openQrImageBtn) openQrImageBtn.addEventListener('click', closePayModal);
@@ -353,6 +355,12 @@ if (payModal) {
     if (e.target === payModal) closePayModal();
   });
 }
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && payModal && payModal.classList.contains('open')) {
+    closePayModal();
+  }
+});
 
 if (shareQrBtn) {
   shareQrBtn.addEventListener('click', async () => {
