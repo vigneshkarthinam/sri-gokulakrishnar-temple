@@ -45,6 +45,14 @@
             <span class="hero-caption-sub">Vasanthavadi • Madurantakam</span>
           </figcaption>
         </figure>
+        <figure class="hero-slide hero-slide--contain" data-slide="3">
+          <img src="assets/banner (2).jpeg" alt="Temple banner 2" />
+          <figcaption class="hero-caption hero-caption--center">
+            <span class="hero-caption-kicker">Temple Moments</span>
+            <span class="hero-caption-title">Blessings and Devotion</span>
+            <span class="hero-caption-sub">Vasanthavadi - Madurantakam</span>
+          </figcaption>
+        </figure>
         <figure class="hero-slide hero-slide--merged" data-slide="1">
           <img class="hero-slide-bg" src="assets/banner-krishna-govinda.jpg" alt="" aria-hidden="true" />
           <img class="hero-slide-fg" src="assets/banner-krishna-govinda.jpg" alt="Sri Krishna with Govinda" />
@@ -62,14 +70,7 @@
             <span class="hero-caption-sub">Events, seva, and celebrations</span>
           </figcaption>
         </figure>
-        <figure class="hero-slide hero-slide--contain" data-slide="3">
-          <img src="assets/banner (2).jpeg" alt="Temple banner 2" />
-          <figcaption class="hero-caption hero-caption--center">
-            <span class="hero-caption-kicker">Temple Moments</span>
-            <span class="hero-caption-title">Blessings and Devotion</span>
-            <span class="hero-caption-sub">Vasanthavadi - Madurantakam</span>
-          </figcaption>
-        </figure>
+        
       </div>
       <button class="hero-nav hero-nav--prev" type="button" aria-label="Previous banner">‹</button>
       <button class="hero-nav hero-nav--next" type="button" aria-label="Next banner">›</button>
@@ -240,29 +241,31 @@
           <article class="person">
             <img class="person-photo" src="assets/members/arumugam.jpeg" alt="No image available for Mr. Annamalai Arumugham" />
             <h3>Mr. Annamalai Arumugham</h3>
+            <p class="qualification">M.A., M.Phil., LL.B.</p>
             <p class="role">President</p>
           </article>
           <article class="person">
             <img class="person-photo" src="assets/members/Dhanasekaran.jpeg" alt="M. Dhanasekaran" />
             <h3>M. Dhanasekaran</h3>
+            <p class="qualification">B.Sc., M.B.A.</p>
             <p class="role">Secretary</p>
           </article>
-           <article class="person">
+          <article class="person">
             <img class="person-photo" src="assets/members/perumal.jpeg" alt="No image available for R. Perumal" />
             <h3>R. Perumal</h3>
-            <p class="role">Treasurer</p>
+             <p class="role">Treasurer</p>
           </article>
           <article class="person">
             <img class="person-photo" src="assets/members/varadu.jpeg" alt="No image available for R. Varadarajan" />
             <h3>R. Varadarajan</h3>
-            <p class="role">Vice President</p>
+             <p class="role">Vice President</p>
           </article>
           <article class="person">
             <img class="person-photo" src="assets/members/kamal.jpeg" alt="No image available for M. Kamalanathan" />
             <h3>M. Kamalanathan</h3>
+            <p class="qualification">M.Sc., M.Ed.</p>
             <p class="role">Joint Secretary</p>
           </article>
-         
         </div>
       </div>
     </section>
@@ -274,7 +277,7 @@
         <p class="section-note center light">Donations, grants and sponsorships are welcome for the ongoing temple construction and future service activities. Every contribution brings us closer to Kumbabishekam.</p>
 
         <div class="donate-grid">
-          <div class="donate-card qr-card">
+          <div class="donate-card qr-card" id="openPayModal" role="button" tabindex="0" aria-label="Open Scan and Pay options">
             <p class="qr-title">Scan &amp; Pay</p>
             <div class="qr-frame">
               <img src="assets/qr/payment-qr.jpeg" alt="UPI payment QR code for Sri Gokulakrishnar Kovil Trust" onerror="this.parentElement.classList.add('qr-placeholder'); this.style.display='none';"/>
@@ -283,7 +286,7 @@
                 <p>Place your UPI QR image at<br/><code>assets/qr/payment-qr.jpg</code></p>
               </div>
             </div>
-            <p class="qr-note">UPI • GPay • PhonePe • Paytm</p>
+            <p class="qr-note">Tap to open payment options</p>
           </div>
 
           <div class="donate-card bank-card">
@@ -305,8 +308,8 @@
     <section id="documents" class="section">
       <div class="container">
         <p class="eyebrow center">Official Records</p>
-        <h2 class="center">Trust Documents</h2>
-        <p class="section-note center">Attached source images and certificates.</p>
+        <h2 class="center">Trust Documents &amp; Kumbabishekam Notices</h2>
+        <p class="section-note center">Trust records, certificates, invitation materials, and Kumbabishekam schedule documents.</p>
         <div class="gallery doc-gallery">
           <figure>
             <img src="assets/trustees-english.jpeg" alt="English trust profile and trustees list" />
@@ -323,6 +326,18 @@
           <figure>
             <img src="assets/invitation-tamil.jpeg" alt="Tamil invitation poster" />
             <figcaption>Temple invitation notice</figcaption>
+          </figure>
+           <figure>
+            <img src="assets/ayya-kuzhu-poster.jpeg" alt="Tamil invitation poster" />
+            <figcaption>Temple invitation notice</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/kumbabishekam/invitation.jpg" alt="Kumbabishekam invitation notice" />
+            <figcaption>Kumbabishekam invitation</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/kumbabishekam/schedule.jpg" alt="Kumbabishekam schedule notice" />
+            <figcaption>Kumbabishekam schedule</figcaption>
           </figure>
         </div>
       </div>
@@ -368,116 +383,138 @@
   <!-- ============ KUMBABHISHEKAM POPUP MODAL ============ -->
   <div class="modal-backdrop" id="kumbModal" role="dialog" aria-modal="true" aria-labelledby="kumbModalTitle">
     <div class="modal kumb-modal">
-      <button class="modal-close" id="kumbModalClose" aria-label="Close">×</button>
+      <button class="modal-close" id="kumbModalClose" aria-label="மூடு">×</button>
 
       <div class="modal-banner">
         <div class="modal-fireworks"></div>
         <span class="modal-lotus-left">🪷</span>
         <span class="modal-lotus-right">🪷</span>
         <p class="modal-sanskrit">|| ॐ श्री कृष्णाय नमः ||</p>
-        <h2 id="kumbModalTitle">MAHA KUMBABHISHEKAM</h2>
-        <p class="modal-tamil">மஹா கும்பாபிஷேகம்</p>
+        <h2 id="kumbModalTitle">மகா கும்பாபிஷேகம்</h2>
+        <p class="modal-tamil">மகா கும்பாபிஷேகம்</p>
       </div>
 
       <div class="modal-body">
         <div class="kumb-hero">
           <div class="kumb-date-card">
-            <p class="kumb-date-label">Main Ceremony</p>
+            <p class="kumb-date-label">முக்கிய விழா</p>
             <p class="kumb-date-big">30</p>
-            <p class="kumb-date-month">APRIL 2026</p>
-            <p class="kumb-date-day">Thursday • வியாழக்கிழமை</p>
-            <p class="kumb-date-time">🕗 8:00 AM</p>
+            <p class="kumb-date-month">ஏப்ரல் 2026</p>
+            <p class="kumb-date-day">வியாழக்கிழமை</p>
+            <p class="kumb-date-time">🕗 காலை 8:00 மணி</p>
           </div>
           <div class="kumb-countdown">
-            <p class="kumb-countdown-label">Countdown</p>
+            <p class="kumb-countdown-label">நேரக் கணிப்பு</p>
             <div class="kumb-countdown-row">
-              <div><strong id="cd-days">--</strong><span>Days</span></div>
-              <div><strong id="cd-hours">--</strong><span>Hours</span></div>
-              <div><strong id="cd-mins">--</strong><span>Mins</span></div>
-              <div><strong id="cd-secs">--</strong><span>Secs</span></div>
+              <div><strong id="cd-days">--</strong><span>நாட்கள்</span></div>
+              <div><strong id="cd-hours">--</strong><span>மணி</span></div>
+              <div><strong id="cd-mins">--</strong><span>நிமிடம்</span></div>
+              <div><strong id="cd-secs">--</strong><span>விநாடி</span></div>
             </div>
           </div>
         </div>
 
         <div class="kumb-subtitle">
-          <p>🕉️ Nootana Bimba Ashtabandhana Maha Kumbabhishekam</p>
-          <p class="kumb-subtitle-ta">நூதன பிம்ப அஷ்டபந்தன மஹா கும்பாபிஷேகம்</p>
+          <p>🕉️ நூதன பிம்ப அஷ்டபந்தன மகா கும்பாபிஷேகம்</p>
+          <p class="kumb-subtitle-ta">நூதன பிம்ப அஷ்டபந்தன மகா கும்பாபிஷேகம்</p>
         </div>
 
         <div class="kumb-schedule">
-          <h3>📅 Schedule of Sacred Rites</h3>
+          <h3>📅 நிகழ்ச்சி நிரல்</h3>
 
           <div class="kumb-row">
             <div class="kumb-date-chip">
               <strong>28</strong>
-              <span>Apr</span>
+              <span>ஏப்</span>
             </div>
             <div class="kumb-meta">
-              <p class="kumb-day"><strong>Tuesday</strong> • செவ்வாய்க்கிழமை • 🕘 3:00 PM</p>
-              <p>Vigneshwara Pooja • Punyahavachanam • Go Danam • Navadhanyam • Angurarohanam • Marut Pooja • Agni Prathishtai • Yaga Shala Pravesam • Jaya Homam • Vastu Pooja • First Kala Pooja</p>
+              <p class="kumb-day"><strong>செவ்வாய்க்கிழமை</strong> • 🕒 மாலை 3:00 மணி</p>
+              <p>எஜமானர் அனுக்ஞை • ஆசாரியர்கள் அனுக்ஞை • விஸ்வக்சேனர் ஆராதனை • புண்யாஹவாசனம் • மிருத்சங்க்ரஹணம் • அங்குரார்ப்பணம் • சோம ஹோமம் • தீர்த்த சேகரித்தல் • கலச ஸ்தாபனம் • கலாகர்ஷணம் • யாகசாலை பிரவேசம் • வாஸ்து பூஜை • முதல் கால யாகசாலை ஹோம ஆரம்பம் • வேத திவ்யபிரபந்த கோஷ்டி ஆரம்பம் • மூல ஹோமம் • பூர்ணாஹுதி • வேத பிரபந்த சாற்றுமுறை • பிரசாத விநியோகம்</p>
             </div>
           </div>
 
           <div class="kumb-row">
             <div class="kumb-date-chip">
               <strong>29</strong>
-              <span>Apr</span>
+              <span>ஏப்</span>
             </div>
             <div class="kumb-meta">
-              <p class="kumb-day"><strong>Wednesday</strong> • புதன்கிழமை • 🕘 9:00 AM</p>
-              <p>Vigneshwara Pooja • Punyahavachanam • Go Danam • Yaga Shala Pravesam • Soma Homam • Surya Homam • Dhvajarohanam • Jaya Homam • Second Kala Pooja</p>
+              <p class="kumb-day"><strong>புதன்கிழமை</strong> • 🕘 காலை 9:00 மணி</p>
+              <p>விஸ்வக்சேனர் ஆராதனை • புண்யாஹவாசனம் • சதுர்த்தான ஆராதனம் • தேவதா அனுஜ்ஞை • குருபூஜை • பலி • இரண்டாம் கால யாகசாலை ஹோம ஆரம்பம் • வேத திவ்யபிரபந்த கோஷ்டி ஆரம்பம் • மூல ஹோமம் • பூர்ணாஹுதி • வேத பிரபந்த சாற்றுமுறை • பிரசாத விநியோகம்</p>
             </div>
           </div>
 
           <div class="kumb-row">
             <div class="kumb-date-chip">
               <strong>29</strong>
-              <span>Apr</span>
+              <span>ஏப்</span>
             </div>
             <div class="kumb-meta">
-              <p class="kumb-day"><strong>Wednesday Evening</strong> • 🕕 Evening</p>
-              <p>Continuation of Homams • Maha Homam • Special rituals • Preparations for Kumbabhishekam</p>
+              <p class="kumb-day"><strong>புதன்கிழமை</strong> • 🕒 மாலை 3:00 மணி</p>
+              <p>விஸ்வக்சேனர் ஆராதனை • புண்யாஹவாசனம் • சதுர்த்தான ஆராதனம் • தேவதா அனுஜ்ஞை • குருபூஜை • பலி • மூன்றாம் கால யாகசாலை ஹோம ஆரம்பம் • வேத திவ்யபிரபந்த கோஷ்டி ஆரம்பம் • மூல ஹோமம் • பூர்ணாஹுதி • தத்துவ ஹோமம் • ரக்ஷாபந்தனம் • கர்மாங்க ஸ்நாபனம் • வேத பிரபந்த சாற்றுமுறை • பிரசாத விநியோகம்</p>
             </div>
           </div>
 
           <div class="kumb-row highlight">
             <div class="kumb-date-chip gold">
               <strong>30</strong>
-              <span>Apr</span>
+              <span>ஏப்</span>
             </div>
             <div class="kumb-meta">
-              <p class="kumb-day"><strong>Thursday — MAHA KUMBABHISHEKAM DAY</strong> • வியாழக்கிழமை • 🕗 8:00 AM &amp; 🕠 5:55 PM</p>
-              <p><strong>🛕 Nootana Bimba Ashtabandhana Maha Kumbabhishekam</strong> — Grand Consecration of the newly installed deities with auspicious abhishekam on the Vimanam.</p>
+              <p class="kumb-day"><strong>வியாழக்கிழமை — மகா கும்பாபிஷேக தினம்</strong> • 🕗 காலை 8:00 மணி &amp; 🕠 மாலை 5:55 மணி</p>
+              <p><strong>🛕 நூதன பிம்ப அஷ்டபந்தன மகா கும்பாபிஷேகம்</strong> • விஸ்வக்சேனர் ஆராதனை • புண்யாஹவாசனம் • சதுர்த்தான ஆராதனம் • தேவதா அனுஜ்ஞை • குருபூஜை • பலி • நான்காம் கால யாகசாலை ஹோம ஆரம்பம் • வேத திவ்யபிரபந்த கோஷ்டி ஆரம்பம் • மூல ஹோமம் • மஹா பூர்ணாஹுதி • யாத்ராதானம் • கலச உத்தாரணம் • மகா சம்ப்ரோக்ஷணம் • அபிஷேகம் • வேத பிரபந்த சாற்றுமுறை • பிரசாத விநியோகம்</p>
             </div>
           </div>
         </div>
 
         <div class="kumb-location">
-          <p><strong>📍 Venue</strong><br/>Sri Rukmani Sathyabhama Samedha Gokulakrishna Swamy Temple<br/>Vasanthavadi Village, Madurantakam Taluk, Chengalpattu District</p>
+          <p><strong>📍 இடம்</strong><br/>ஸ்ரீ ருக்மணி சத்யபாமா சமேத கோகுலகிருஷ்ண சுவாமி திருக்கோவில்<br/>வசந்தவாடி கிராமம், மதுராந்தகம் தாலுக்கு, செங்கல்பட்டு மாவட்டம்</p>
         </div>
 
         <div class="kumb-priests">
-          <p><strong>🕉️ Officiating Priests</strong><br/>Sri M. Govinda Bhattar, Archakar — Arulmigu Kalyana Perumal Thirukkoyil, Thiruppachur, Madurai<br/>Sri U. Ve. Sathya Thennai Swamigal, Sridhari — Arulmigu Andal Temple, Poonamallee</p>
+          <p><strong>🕉️ யாகசாலை பிரதான அர்ச்சகர்</strong><br/>ஸ்ரீ. உ. வே. கோவிந்த பட்டர், அர்ச்சகர் — அருள்மிகு காளமேக பெருமாள் திருக்கோவில், திருமோகூர், மதுரை<br/><br/><strong>சர்வசாதகம்</strong><br/>ஸ்ரீ. உ. வே. சத்யநாராயணன் ஸ்வாமிகள், ஸ்தானிகர் — அருள்மிகு நாச்சியார் (ஆண்டாள்) தேவஸ்தான வகையறா திருக்கோவில்கள், ஸ்ரீவில்லிபுத்தூர்</p>
         </div>
 
         <div class="kumb-invite-images">
           <figure>
-            <img src="assets/kumbabishekam/invitation.jpg" alt="Kumbabishekam invitation (Tamil)" loading="lazy"/>
-            <figcaption>Official Invitation</figcaption>
+            <img src="assets/kumbabishekam/invitation.jpg" alt="கும்பாபிஷேக அழைப்பிதழ்" loading="lazy"/>
+            <figcaption>அதிகாரப்பூர்வ அழைப்பிதழ்</figcaption>
           </figure>
           <figure>
-            <img src="assets/kumbabishekam/schedule.jpg" alt="Kumbabishekam schedule of rites (Tamil)" loading="lazy"/>
-            <figcaption>Schedule of Rites</figcaption>
+            <img src="assets/kumbabishekam/schedule.jpg" alt="கும்பாபிஷேக நிகழ்ச்சி நிரல்" loading="lazy"/>
+            <figcaption>நிகழ்ச்சி நிரல்</figcaption>
           </figure>
         </div>
 
         <div class="kumb-cta">
-          <a href="#donate" class="btn primary" id="kumbDonateLink">🌼 Contribute to Kumbabishekam</a>
-          <button class="btn ghost" id="kumbDismissBtn" type="button">Close</button>
+          <a href="#donate" class="btn primary" id="kumbDonateLink">🌼 கும்பாபிஷேகத்திற்கு காணிக்கை செலுத்தவும்</a>
+          <button class="btn ghost" id="kumbDismissBtn" type="button">மூடு</button>
         </div>
 
         <p class="kumb-foot">🙏 அனைவரும் வருகை தந்து பெருமாளின் அருளைப் பெற வேண்டுகிறோம் 🙏<br/>
-        <em>All devotees are cordially invited to receive the blessings of the Lord.</em></p>
+        <em>அனைத்து பக்தர்களும் அன்புடன் வருகை தந்து இறைவனின் அருளைப் பெறுமாறு அன்புடன் அழைக்கப்படுகிறார்கள்.</em></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="payModal" role="dialog" aria-modal="true" aria-labelledby="payModalTitle">
+    <div class="modal pay-modal">
+      <button class="modal-close" id="payModalClose" aria-label="Close payment options">×</button>
+      <div class="modal-banner pay-modal-banner">
+        <p class="modal-sanskrit">Donate with UPI</p>
+        <h2 id="payModalTitle">Scan &amp; Pay</h2>
+        <p class="modal-tamil">Use PhonePe, GPay, or any UPI app on mobile</p>
+      </div>
+      <div class="modal-body pay-modal-body">
+        <div class="pay-qr-wrap">
+          <img id="payModalQr" src="assets/qr/payment-qr.jpeg" alt="UPI payment QR code" loading="lazy"/>
+        </div>
+        <p class="pay-modal-note">Open this QR on mobile and pay using PhonePe, GPay, Paytm, or any UPI app.</p>
+        <div class="pay-actions">
+          <a class="btn primary" id="openQrImageBtn" href="assets/qr/payment-qr.jpeg" target="_blank" rel="noopener">Open QR Fullscreen</a>
+          <button class="btn ghost" id="shareQrBtn" type="button">Share QR</button>
+        </div>
+        <p class="pay-modal-foot">If you share the exact UPI payment link, I can also add one-tap direct launch for PhonePe and GPay.</p>
       </div>
     </div>
   </div>
