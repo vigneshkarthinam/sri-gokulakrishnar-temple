@@ -191,7 +191,7 @@ style.textContent = `.gallery figure img { cursor: zoom-in; }`;
 document.head.appendChild(style);
 
 // ============ KUMBABHISHEKAM MODAL & COUNTDOWN ============
-const KUMB_DATE = new Date('2026-04-30T09:30:00+05:30'); // Main Kumbabhishekam
+const KUMB_DATE = new Date('2026-04-30T08:00:00+05:30'); // Main Kumbabhishekam
 const KUMB_STORAGE_KEY = 'kumbabishekam-modal-dismissed';
 const KUMB_DISMISS_HOURS = 12; // Re-show after 12 hours
 
