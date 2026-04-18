@@ -330,6 +330,23 @@ h1 .accent {
   display: block;
 }
 
+.hero-slide--contain {
+  background:
+    radial-gradient(circle at center, rgba(240, 224, 180, 0.16) 0%, rgba(10, 31, 44, 0.92) 60%, #0a1f2c 100%);
+}
+
+.hero-slide--contain img {
+  object-fit: contain;
+  object-position: center;
+  padding: 20px;
+  image-rendering: -webkit-optimize-contrast;
+  filter: contrast(1.04) saturate(1.06);
+}
+
+.hero-slide--contain .hero-caption--center {
+  background: linear-gradient(to top, rgba(6, 53, 73, 0.78) 0%, rgba(6, 53, 73, 0.2) 45%, rgba(6, 53, 73, 0.06) 100%);
+}
+
 .hero-carousel--full .hero-slide img + .hero-caption {
   background: linear-gradient(to top, rgba(6, 53, 73, 0.75) 0%, rgba(6, 53, 73, 0.4) 50%, rgba(6, 53, 73, 0.55) 100%);
 }
@@ -823,13 +840,14 @@ h2.center::after {
 }
 
 .person-photo {
-  width: 62px;
-  height: 62px;
-  border-radius: 50%;
+  width: 54px;
+  height: 68px;
+  border-radius: 10px;
   object-fit: cover;
+  object-position: center top;
   display: block;
   margin: 0 auto 12px;
-  box-shadow: inset 0 0 0 2px var(--gold);
+  box-shadow: 0 0 0 2px var(--gold);
 }
 
 .person h3 {
@@ -1786,6 +1804,22 @@ h2.light::after { color: var(--gold); }
 
 /* ============ RESPONSIVE ============ */
 @media (max-width: 960px) {
+  .hero-slide--contain-mobile {
+    background:
+      radial-gradient(circle at center, rgba(240, 224, 180, 0.16) 0%, rgba(10, 31, 44, 0.92) 60%, #0a1f2c 100%);
+  }
+
+  .hero-slide--contain-mobile img {
+    object-fit: contain;
+    object-position: center;
+    padding: 14px;
+    image-rendering: -webkit-optimize-contrast;
+  }
+
+  .hero-slide--contain-mobile .hero-caption--center {
+    background: linear-gradient(to top, rgba(6, 53, 73, 0.8) 0%, rgba(6, 53, 73, 0.24) 48%, rgba(6, 53, 73, 0.06) 100%);
+  }
+
   .hero-grid,
   .split,
   .trustees-grid,

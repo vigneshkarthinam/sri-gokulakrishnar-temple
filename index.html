@@ -37,7 +37,7 @@
   <main id="home">
     <div class="hero-carousel hero-carousel--full" id="heroCarousel" aria-roledescription="carousel" aria-label="Temple banners">
       <div class="hero-slides">
-        <figure class="hero-slide is-active" data-slide="0">
+        <figure class="hero-slide hero-slide--contain-mobile is-active" data-slide="0">
           <img src="assets/home_page_banner.jpeg" alt="Sri Gokulakrishnar Temple banner" />
           <figcaption class="hero-caption hero-caption--center">
             <span class="hero-caption-kicker">🙏 Welcome to</span>
@@ -63,6 +63,22 @@
             <span class="hero-caption-sub">Poojas • Annadhanam • Goshalai</span>
           </figcaption>
         </figure>
+        <figure class="hero-slide hero-slide--contain" data-slide="3">
+          <img src="assets/banner (1).jpeg" alt="Temple banner 1" />
+          <figcaption class="hero-caption hero-caption--center">
+            <span class="hero-caption-kicker">Temple Updates</span>
+            <span class="hero-caption-title">Sri Gokulakrishnar Temple</span>
+            <span class="hero-caption-sub">Events, seva, and celebrations</span>
+          </figcaption>
+        </figure>
+        <figure class="hero-slide hero-slide--contain" data-slide="4">
+          <img src="assets/banner (2).jpeg" alt="Temple banner 2" />
+          <figcaption class="hero-caption hero-caption--center">
+            <span class="hero-caption-kicker">Temple Moments</span>
+            <span class="hero-caption-title">Blessings and Devotion</span>
+            <span class="hero-caption-sub">Vasanthavadi - Madurantakam</span>
+          </figcaption>
+        </figure>
       </div>
       <button class="hero-nav hero-nav--prev" type="button" aria-label="Previous banner">‹</button>
       <button class="hero-nav hero-nav--next" type="button" aria-label="Next banner">›</button>
@@ -70,6 +86,8 @@
         <button type="button" class="hero-dot is-active" data-dot="0" aria-label="Banner 1"></button>
         <button type="button" class="hero-dot" data-dot="1" aria-label="Banner 2"></button>
         <button type="button" class="hero-dot" data-dot="2" aria-label="Banner 3"></button>
+        <button type="button" class="hero-dot" data-dot="3" aria-label="Banner 4"></button>
+        <button type="button" class="hero-dot" data-dot="4" aria-label="Banner 5"></button>
       </div>
     </div>
 
@@ -230,7 +248,7 @@
         <h2 class="center">Trustees</h2>
         <div class="trustees-grid">
           <article class="person">
-            <img class="person-photo" src="assets/members/no-image.svg" alt="No image available for Mr. Annamalai Arumugham" />
+            <img class="person-photo" src="assets/members/arumugam.jpeg" alt="No image available for Mr. Annamalai Arumugham" />
             <h3>Mr. Annamalai Arumugham</h3>
             <p class="role">President</p>
           </article>
@@ -268,7 +286,7 @@
           <div class="donate-card qr-card">
             <p class="qr-title">Scan &amp; Pay</p>
             <div class="qr-frame">
-              <img src="assets/qr/payment-qr.jpg" alt="UPI payment QR code for Sri Gokulakrishnar Kovil Trust" onerror="this.parentElement.classList.add('qr-placeholder'); this.style.display='none';"/>
+              <img src="assets/qr/payment-qr.jpeg" alt="UPI payment QR code for Sri Gokulakrishnar Kovil Trust" onerror="this.parentElement.classList.add('qr-placeholder'); this.style.display='none';"/>
               <div class="qr-fallback">
                 <span>📱</span>
                 <p>Place your UPI QR image at<br/><code>assets/qr/payment-qr.jpg</code></p>
