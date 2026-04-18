@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="title desc">
+  <title id="title">No image available</title>
+  <desc id="desc">Placeholder profile image for a trustee without a photo.</desc>
+  <rect width="120" height="120" rx="60" fill="#f4ead2"/>
+  <circle cx="60" cy="46" r="20" fill="#cbb37a"/>
+  <path d="M26 95c6-18 21-28 34-28s28 10 34 28" fill="#cbb37a"/>
+  <path d="M36 36l48 48" stroke="#0b5269" stroke-width="6" stroke-linecap="round" opacity="0.75"/>
+</svg>
